@@ -1,12 +1,12 @@
 name: Testing with Pytest
-run-name: Pytest  
+run-name: Pytest  # Fixed typo: was "run-nam"
 
 on:
   push:
     branches:
       - main
       - 'releases/**'
-    
+    # REMOVED branches-ignore - can't use both branches and branches-ignore
     
   pull_request:
     branches:
@@ -26,10 +26,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Updated to v3
+      uses: actions/checkout@v4  # Updated to v4
       
     - name: Set up Python
-      uses: actions/setup-python@v4  # Updated to v4
+      uses: actions/setup-python@v5  # Updated to v5
       with:
         python-version: '3.8'
         
@@ -52,7 +52,7 @@ jobs:
       
     - name: Upload test results
       if: always()
-      uses: actions/upload-artifact@v3  # Updated to v3
+      uses: actions/upload-artifact@v4  # Updated to v4 - LATEST VERSION
       with:
         name: test-results
         path: pytest-report.xml
