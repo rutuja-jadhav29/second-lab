@@ -1,0 +1,11 @@
+install:
+	pip install -r src/requirements.txt
+
+test:
+	pytest src/test_pytest.py && python -m unittest discover src
+
+pytest:
+	pytest src/test_pytest.py
+
+unittest:
+	python -m unittest discover src
